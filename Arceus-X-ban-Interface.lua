@@ -2,7 +2,13 @@
 	-- Version: 3.2 - Exp
 
 	-- Instances:
+local system = {}
 
+local function gethwid()
+	return string.gsub(game:GetService("RbxAnalyticsService"):GetClientId(),"-","")
+end
+
+function system:Blacklist()
 	local BanCheck = {
 		BanCheck = Instance.new("ScreenGui"),
 		BanScreen = Instance.new("Frame"),
@@ -413,17 +419,20 @@
 	end)
 	
 	BanCheck.BanScreen_Unban.MouseButton1Click:Connect(function()
-		(setclipboard or toclipboard)("https://spdmteam.com/api/create-unban-payment?hwid=" .. gethwid())
+		(setclipboard or toclipboard)("Not Available")
 		BanCheck.BanScreen_Unban.Text = "Link Copied"
 		task.wait(2)
 		BanCheck.BanScreen_Unban.Text = "Buy Unban"
 	end)
 
 	BanCheck.BanScreen_CopyLinkButton.MouseButton1Click:Connect(function()
-		(setclipboard or toclipboard)("https://discord.com/invite/arceus")
+		(setclipboard or toclipboard)("https://discord.com/invite/WhrxEa29P9")
 	end)
 
 	BanCheck.HWID.Text = gethwid()
 	BanCheck.HWID_copy.MouseButton1Click:Connect(function()
 		(setclipboard or toclipboard)(gethwid())
 	end)
+end
+
+return system
