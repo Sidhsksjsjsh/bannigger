@@ -3,6 +3,20 @@
 
 	-- Instances:
 local system = {}
+local CoreGUI = game:GetService("CoreGui")
+
+local function gethui(gui)
+	if HIDEUI then
+		gui["Parent"] = HIDEUI()
+	elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
+		syn.protect_gui(gui)
+		gui["Parent"] = CoreGUI
+	elseif CoreGUI:FindFirstChild("RobloxGui") then
+		gui["Parent"] = CoreGUI.RobloxGui
+	else
+		gui["Parent"] = CoreGUI
+	end
+end
 
 local function gethwid()
 	return string.gsub(game:GetService("RbxAnalyticsService"):GetClientId(),"-","")
@@ -59,7 +73,7 @@ function system:Blacklist()
 		return obj
 	end
 
-	loadImage = function(robloxUrl, customUrl)
+	function loadImage(robloxUrl, customUrl)
 		--if not isStudio and customUrl then
 		--	local splitted = customUrl:split("/")
 		--	local imageName = splitted[#splitted]
@@ -118,7 +132,7 @@ function system:Blacklist()
 	BanCheck.PopupTitle_2.ZIndex = 5
 	BanCheck.PopupTitle_2.Font = Enum.Font.Unknown
 	BanCheck.PopupTitle_2.FontFace = Font.new("rbxassetid://12187360881", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-	BanCheck.PopupTitle_2.Text = "Your device has been banned from all SPDM Team's softwares for rule violation. For support, visit:"
+	BanCheck.PopupTitle_2.Text = "Your device has been banned from all Turtle Team's scripts for rule violation. For support, visit:"
 	BanCheck.PopupTitle_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 	BanCheck.PopupTitle_2.TextScaled = true
 	BanCheck.PopupTitle_2.TextSize = 14
@@ -138,7 +152,7 @@ function system:Blacklist()
 	BanCheck.PopupTitle_3.ZIndex = 5
 	BanCheck.PopupTitle_3.Font = Enum.Font.Unknown
 	BanCheck.PopupTitle_3.FontFace = Font.new("rbxassetid://12187360881", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-	BanCheck.PopupTitle_3.Text = "SPDM Team"
+	BanCheck.PopupTitle_3.Text = "SPDM Team & Turtle Team"
 	BanCheck.PopupTitle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
 	BanCheck.PopupTitle_3.TextScaled = true
 	BanCheck.PopupTitle_3.TextSize = 14
@@ -222,7 +236,7 @@ function system:Blacklist()
 	BanCheck.PopupTitle_6.ZIndex = 5
 	BanCheck.PopupTitle_6.Font = Enum.Font.Unknown
 	BanCheck.PopupTitle_6.FontFace = Font.new("rbxassetid://12187360881", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-	BanCheck.PopupTitle_6.Text = "Arceus X NEO"
+	BanCheck.PopupTitle_6.Text = "Turtle Hub"
 	BanCheck.PopupTitle_6.TextColor3 = Color3.fromRGB(255, 255, 255)
 	BanCheck.PopupTitle_6.TextScaled = true
 	BanCheck.PopupTitle_6.TextSize = 14
@@ -270,7 +284,7 @@ function system:Blacklist()
 	BanCheck.BanServerInvite.ZIndex = 5
 	BanCheck.BanServerInvite.Font = Enum.Font.Unknown
 	BanCheck.BanServerInvite.FontFace = Font.new("rbxassetid://12187360881", Enum.FontWeight.Bold, Enum.FontStyle.Italic)
-	BanCheck.BanServerInvite.Text = "https://discord.com/invite/arceus"
+	BanCheck.BanServerInvite.Text = "https://discord.com/invite/WhrxEa29P9"
 	BanCheck.BanServerInvite.TextColor3 = Color3.fromRGB(0, 153, 255)
 	BanCheck.BanServerInvite.TextScaled = true
 	BanCheck.BanServerInvite.TextSize = 14
