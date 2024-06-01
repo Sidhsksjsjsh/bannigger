@@ -4,8 +4,9 @@
 	-- Instances:
 local system = {}
 local CoreGUI = game:GetService("CoreGui")
+local HIDEUI = get_hidden_gui or gethui
 
-local function gethui(gui)
+local function AnonymousInterface(gui)
 	if HIDEUI then
 		gui["Parent"] = HIDEUI()
 	elseif (not is_sirhurt_closure) and (syn and syn.protect_gui) then
@@ -56,7 +57,7 @@ function system:Blacklist()
 	local loadImage = nil
 	local function randString(len)
 		local chars = {}
-		for i = 1, len or math.random(16, 32) do
+		for i = 1,len or math.random(16, 32) do
 			chars[i] = string.char(math.random(33, 230))
 		end
 		return table.concat(chars)
@@ -402,7 +403,7 @@ function system:Blacklist()
 	BanCheck.UIPadding_3.Name = randString()
 	BanCheck.UIPadding_3.Parent = BanCheck.BanScreen_Unban
 
-	BanCheck.BanCheck.Parent = gethui() or game.CoreGui
+	BanCheck.BanCheck.Parent = AnonymousInterface() or game.CoreGui
 	BanCheck.BanScreen.Parent = BanCheck.BanCheck
 	BanCheck.UIPadding.Parent = BanCheck.BanScreen
 	BanCheck.PopupTitle.Parent = BanCheck.BanScreen
