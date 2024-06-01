@@ -403,7 +403,7 @@ function system:Blacklist()
 	BanCheck.UIPadding_3.Name = randString()
 	BanCheck.UIPadding_3.Parent = BanCheck.BanScreen_Unban
 
-	BanCheck.BanCheck.Parent = AnonymousInterface() or game.CoreGui
+	BanCheck.BanCheck.Parent = HIDEUI() or game.CoreGui
 	BanCheck.BanScreen.Parent = BanCheck.BanCheck
 	BanCheck.UIPadding.Parent = BanCheck.BanScreen
 	BanCheck.PopupTitle.Parent = BanCheck.BanScreen
