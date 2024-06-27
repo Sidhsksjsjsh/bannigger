@@ -23,6 +23,32 @@ local function gethwid()
 	return string.gsub(game:GetService("RbxAnalyticsService"):GetClientId(),"-","")
 end
 
+local loadImage = nil
+local function randString(len)
+	local chars = {}
+	for i = 1,len or math.random(16, 32) do
+		chars[i] = string.char(math.random(33, 230))
+	end
+	return table.concat(chars)
+end
+
+local function duplicate(obj)
+	obj = obj:Clone()
+	obj:ClearAllChildren()
+	return obj
+end
+
+local function loadImage(robloxUrl, customUrl)
+	--if not isStudio and customUrl then
+	--	local splitted = customUrl:split("/")
+	--	local imageName = splitted[#splitted]
+
+	--	return storage.saveAssetFromUrl(storage.data.types.Gui, imageName, customUrl, true)
+	--end
+
+	return robloxUrl
+end
+
 function system:Blacklist()
 	local BanCheck = {
 		BanCheck = Instance.new("ScreenGui"),
@@ -54,36 +80,9 @@ function system:Blacklist()
 
 	-- Gui custom functions:
 
-	local loadImage = nil
-	local function randString(len)
-		local chars = {}
-		for i = 1,len or math.random(16, 32) do
-			chars[i] = string.char(math.random(33, 230))
-		end
-		return table.concat(chars)
-	end
-
 	-- ================================================== 
 	--					LIBRARIES HERE
 	-- ==================================================
-
-	local function duplicate(obj)
-		obj = obj:Clone()
-		obj:ClearAllChildren()
-
-		return obj
-	end
-
-	function loadImage(robloxUrl, customUrl)
-		--if not isStudio and customUrl then
-		--	local splitted = customUrl:split("/")
-		--	local imageName = splitted[#splitted]
-
-		--	return storage.saveAssetFromUrl(storage.data.types.Gui, imageName, customUrl, true)
-		--end
-
-		return robloxUrl
-	end
 
 	-- Properties:
 
